@@ -62,15 +62,19 @@ public class BossBarCommand extends CommandWrapper {
 							CM.config.set("BossMessage.Messages", CM.rawmessages);
 							CM.save();
 							sender.sendMessage(ChatColor.GREEN + "Your message was successfully added!");
+							return true;
 
 						} else {
 							sender.sendMessage(ChatColor.RED + "The percent must be between 1 and 100!");
+							return true;
 						}
 					} else {
 						sender.sendMessage(ChatColor.RED + args[1] + ChatColor.DARK_RED + " is not a valid number!");
+						return true;
 					}
 				} else {
 					sender.sendMessage(ChatColor.DARK_RED + "Usage: " + ChatColor.RED + "/Hubbar add <percent> <message>");
+					return true;
 				}
 
 			}
@@ -91,12 +95,15 @@ public class BossBarCommand extends CommandWrapper {
 							CM.save();
 							Lib.resetCount();
 							sender.sendMessage(ChatColor.GREEN + "Message #" + num + " was successfully removed!");
+							return true;
 						} else {
 							sender.sendMessage(ChatColor.DARK_RED + "Message " + ChatColor.RED + args[1] + ChatColor.DARK_RED + "was not found!");
+							return true;
 						}
 					}
 				} else {
 					sender.sendMessage(ChatColor.DARK_RED + "Usage: " + ChatColor.RED + "/Hubbar remove <#>");
+					return true;
 				}
 			}
 			// Command: LIST
@@ -113,6 +120,7 @@ public class BossBarCommand extends CommandWrapper {
 					i++;
 					sender.sendMessage(ChatColor.DARK_GREEN + "" + i + ". " + ChatColor.RESET + msg.get(0));
 				}
+				return true;
 			}
 			// Command: RELOAD
 			else if (args[0].equalsIgnoreCase("reload")) {
@@ -125,12 +133,14 @@ public class BossBarCommand extends CommandWrapper {
 				InfamyPvPHub.plm.disablePlugin(InfamyPvPHub.plm.getPlugin("InfamyPvPHub"));
 				InfamyPvPHub.plm.enablePlugin(InfamyPvPHub.plm.getPlugin("InfamyPvPHub"));
 				sender.sendMessage(ChatColor.GREEN + "Plugin was successfully reloaded!");
+				return true;
 
 			}
 			// Command: HELP
 			else if (args[0].equalsIgnoreCase("help")) {
 
 				printHelp(sender);
+				return true;
 
 			}
 			// Command: INTERVAL
@@ -147,11 +157,14 @@ public class BossBarCommand extends CommandWrapper {
 						CM.save();
 						CM.interval = interval;
 						sender.sendMessage(ChatColor.DARK_GREEN + "The Interval is now set to: " + ChatColor.GREEN + args[1]);
+						return true;
 					} else {
 						sender.sendMessage(ChatColor.RED + args[1] + ChatColor.DARK_RED + " is not a valid number!");
+						return true;
 					}
 				} else {
 					sender.sendMessage(ChatColor.DARK_RED + "Usage: " + ChatColor.RED + "/Hubbar interval <ticks>");
+					return true;
 				}
 
 			}
@@ -169,15 +182,19 @@ public class BossBarCommand extends CommandWrapper {
 						CM.save();
 						CM.show = show;
 						sender.sendMessage(ChatColor.DARK_GREEN + "The Show is now set to: " + ChatColor.GREEN + args[1]);
+						return true;
 					} else {
 						sender.sendMessage(ChatColor.RED + args[1] + ChatColor.DARK_RED + " is not a valid number!");
+						return true;
 					}
 				} else {
 					sender.sendMessage(ChatColor.DARK_RED + "Usage: " + ChatColor.RED + "/Hubbar show <ticks>");
+					return true;
 				}
 
 			} else {
 				sender.sendMessage(ChatColor.DARK_RED + "Invalid command! Usage: " + ChatColor.RED + "/Hubbar help");
+				return true;
 			}
 		}
 
@@ -189,6 +206,7 @@ public class BossBarCommand extends CommandWrapper {
 	public boolean onExecute(Player player, Command cmd, String label, String[] args) {
 		if (args.length == 0){
 			printHelp(player);
+			return true;
 		} else {
 			// Command: ADD
 			if (args[0].equalsIgnoreCase("add")) {
@@ -224,15 +242,19 @@ public class BossBarCommand extends CommandWrapper {
 							CM.config.set("BossMessage.Messages", CM.rawmessages);
 							CM.save();
 							player.sendMessage(ChatColor.GREEN + "Your message was successfully added!");
+							return true;
 
 						} else {
 							player.sendMessage(ChatColor.RED + "The percent must be between 1 and 100!");
+							return true;
 						}
 					} else {
 						player.sendMessage(ChatColor.RED + args[1] + ChatColor.DARK_RED + " is not a valid number!");
+						return true;
 					}
 				} else {
 					player.sendMessage(ChatColor.DARK_RED + "Usage: " + ChatColor.RED + "/Hubbar add <percent> <message>");
+					return true;
 				}
 
 			}
@@ -253,12 +275,15 @@ public class BossBarCommand extends CommandWrapper {
 							CM.save();
 							Lib.resetCount();
 							player.sendMessage(ChatColor.GREEN + "Message #" + num + " was successfully removed!");
+							return true;
 						} else {
 							player.sendMessage(ChatColor.DARK_RED + "Message " + ChatColor.RED + args[1] + ChatColor.DARK_RED + "was not found!");
+							return true;
 						}
 					}
 				} else {
 					player.sendMessage(ChatColor.DARK_RED + "Usage: " + ChatColor.RED + "/Hubbar remove <#>");
+					return true;
 				}
 			}
 			// Command: LIST
@@ -275,6 +300,7 @@ public class BossBarCommand extends CommandWrapper {
 					i++;
 					player.sendMessage(ChatColor.DARK_GREEN + "" + i + ". " + ChatColor.RESET + msg.get(0));
 				}
+				return true;
 			}
 			// Command: RELOAD
 			else if (args[0].equalsIgnoreCase("reload")) {
@@ -287,12 +313,13 @@ public class BossBarCommand extends CommandWrapper {
 				InfamyPvPHub.plm.disablePlugin(InfamyPvPHub.plm.getPlugin("InfamyPvPHub"));
 				InfamyPvPHub.plm.enablePlugin(InfamyPvPHub.plm.getPlugin("InfamyPvPHub"));
 				player.sendMessage(ChatColor.GREEN + "Plugin was successfully reloaded!");
-
+				return true;
 			}
 			// Command: HELP
 			else if (args[0].equalsIgnoreCase("help")) {
 
 				printHelp(player);
+				return true;
 
 			}
 			// Command: INTERVAL
@@ -309,11 +336,14 @@ public class BossBarCommand extends CommandWrapper {
 						CM.save();
 						CM.interval = interval;
 						player.sendMessage(ChatColor.DARK_GREEN + "The Interval is now set to: " + ChatColor.GREEN + args[1]);
+						return true;
 					} else {
 						player.sendMessage(ChatColor.RED + args[1] + ChatColor.DARK_RED + " is not a valid number!");
+						return true;
 					}
 				} else {
 					player.sendMessage(ChatColor.DARK_RED + "Usage: " + ChatColor.RED + "/Hubbar interval <ticks>");
+					return true;
 				}
 
 			}
@@ -331,15 +361,19 @@ public class BossBarCommand extends CommandWrapper {
 						CM.save();
 						CM.show = show;
 						player.sendMessage(ChatColor.DARK_GREEN + "The Show is now set to: " + ChatColor.GREEN + args[1]);
+						return true;
 					} else {
 						player.sendMessage(ChatColor.RED + args[1] + ChatColor.DARK_RED + " is not a valid number!");
+						return true;
 					}
 				} else {
 					player.sendMessage(ChatColor.DARK_RED + "Usage: " + ChatColor.RED + "/Hubbar show <ticks>");
+					return true;
 				}
 
 			} else {
 				player.sendMessage(ChatColor.DARK_RED + "Invalid command! Usage: " + ChatColor.RED + "/Hubbar help");
+				return true;
 			}
 		}
 

@@ -1,4 +1,4 @@
-package org.gd.InfamyPvPHub.events;
+package org.gd.InfamyPvPHub.Events;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,20 +13,20 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.gd.InfamyPvPHub.InfamyPvPHub;
 
 public class GiveVanishItemEvent implements Listener {
-
+	
 	private InfamyPvPHub pl;
-
+	
 	public GiveVanishItemEvent(InfamyPvPHub p) {
 		pl = p;
 		this.pl = p;
 	}
-
+	
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onPlayerLogin(PlayerJoinEvent event) {
-		if (pl.getConfig() != null) {
-			if (pl.getConfig().getString("Hide_Item.itemId") != null) {
-
+		if(pl.getConfig() != null) {
+			if(pl.getConfig().getInt("Hide_Item.itemId") != 0) {
+				
 				ItemStack vItem = new ItemStack(pl.getConfig().getInt("Hide_Item.itemId"), 1);
 				ItemMeta vItemMeta = vItem.getItemMeta();
 				vItemMeta.setDisplayName(pl.getConfig().getString("Hide_Item.name").replaceAll("&", "§"));
@@ -34,12 +34,10 @@ public class GiveVanishItemEvent implements Listener {
 				Lore.add(pl.getConfig().getString("Hide_Item.lore").replaceAll("&", "§"));
 				vItemMeta.setLore(Lore);
 				vItem.setItemMeta(vItemMeta);
-				if (event.getPlayer().getInventory().getItemInHand().equals(Material.AIR)) {
+				if(!event.getPlayer().getInventory().contains(vItem)) {
 					event.getPlayer().getInventory().addItem(vItem);
-					event.getPlayer().sendMessage(ChatColor.RED + "Please make room in your inventory for the vanish item!");
 					return;
 				}
-				
 			}
 		}
 	}
