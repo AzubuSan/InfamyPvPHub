@@ -1,0 +1,15 @@
+#######################################################
+#~                                                   ~#
+#~         Default Hub Configuration File            ~#
+#~             Version 1.0.0 by GlobalMC             ~#
+#~                                                   ~#
+#######################################################
+
+
+# This is the item that will be used to hide all other players
+# itemId is the item as an integer 
+# For a full list go here - http://minecraft-ids.grahamedgecombe.com/
+Hide_Item: 
+  itemId: 1 
+  lore: "&5Default lore"
+  name: "&cDefault name"

@@ -1,0 +1,14 @@
+name: ${project.name}
+main: ${project.groupId}.${project.artifactId}.${project.artifactId}
+version: ${project.version}
+description: ${project.description}
+
+commands:
+  hubbar:
+    description: Adds/removes bossbar messages
+    usage: /infamyreload
+
+permissions:
+  infamyhub.reload:
+    description: Allows usage of hubbar command
+    default: op

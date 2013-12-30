@@ -1,0 +1,14 @@
+name: InfamyPvPHub
+main: org.gd.InfamyPvPHub.InfamyPvPHub
+version: 3.16.01-SNAPSHOT
+description: Basic Hub Plugin made for InfamyPvP
+
+commands:
+  hubbar:
+    description: Adds/removes bossbar messages
+    usage: /infamyreload
+
+permissions:
+  infamyhub.reload:
+    description: Allows usage of hubbar command
+    default: op
