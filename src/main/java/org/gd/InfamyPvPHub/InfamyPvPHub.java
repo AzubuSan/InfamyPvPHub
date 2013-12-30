@@ -17,14 +17,13 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
-
 import org.gd.InfamyPvPHub.BarAPI.BarAPI;
 import org.gd.InfamyPvPHub.CommandWrapper.Commands.BossBarCommand;
+import org.gd.InfamyPvPHub.Events.GiveVanishItemEvent;
+import org.gd.InfamyPvPHub.Events.VanishPlayersEvent;
 import org.gd.InfamyPvPHub.Utils.CM;
 import org.gd.InfamyPvPHub.Utils.Lib;
 import org.gd.InfamyPvPHub.Utils.RandomExt;
-import org.gd.InfamyPvPHub.events.GiveVanishItemEvent;
-import org.gd.InfamyPvPHub.events.VanishPlayersEvent;
 
 public class InfamyPvPHub extends JavaPlugin implements Listener {
 

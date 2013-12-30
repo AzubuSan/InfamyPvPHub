@@ -1,4 +1,4 @@
-package org.gd.InfamyPvPHub.events;
+package org.gd.InfamyPvPHub.Events;
 
 import java.util.ArrayList;
 import java.util.List;
